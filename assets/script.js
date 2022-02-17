@@ -1,75 +1,65 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
-// First, tell us your name
-let yourName = "Tyler Herbert" // HINT: Replace this with your own name!
 
-// We'll use these variables to track the counts of each cookie type
+let yourName = "Tyler Herbert" 
 let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
+let gbPlusBtn = document.querySelector('#add-gb')
+let ccAddBtn = document.getElementById("add-cc")
+let sugarAddBtn = document.getElementById("add-sugar")
+let gbMinusBtn = document.getElementById("minus-gb")
+let ccMinus = document.getElementById("minus-cc")
+let sugarMinus = document.getElementById("minus-sugar")
 
-
-
-
-
-// selecting the element with an id of credit
-const credit = document.querySelector('#credit')
-// selecting the element with an id of add-gb
-const gbPlusBtn = document.querySelector('#add-gb')
-
-// Code to update name display
+let credit = document.querySelector('#credit')
 credit.textContent = `Created by ${yourName}`
 
-// Event listener for clicks on the "+" button for Gingerbread cookies
+function updateQuantity(displayQuantity) {
+    let quantity = document.getElementById("qty-total")
+    quantity.innerHTML = cc+gb+sugar 
+}
+
 gbPlusBtn.addEventListener('click', function() {
-// HINT: You can delete this console.log after you no longer need it!
 gb = gb + 1
-console.log(gb)
-console.log('Gingerbread + button was clicked!')
 document.getElementById("qty-gb").innerHTML=gb
-
-// TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+updateQuantity(' ${quantity}')
 })
-let ccAdd = document.getElementById("add-cc")
-ccAdd.addEventListener("click", function(){
+
+ccAddBtn.addEventListener('click', function(){
  cc = cc + 1
- console.log(cc)
- console.log('Chocolatechip + button was clicked!')
  document.getElementById("qty-cc").innerHTML=cc
+ updateQuantity('${quantity}')
 })
 
-let sugarAdd = document.getElementById("add-sugar")
-sugarAdd.addEventListener("click", function(){
+sugarAddBtn.addEventListener('click', function(){
  sugar = sugar + 1
- console.log(sugar)
- console.log('sugar cookie + button was clicked!')
  document.getElementById("qty-sugar").innerHTML=sugar
-
+ updateQuantity('${quantity}')
 })
 
-let gbMinus = document.getElementById("minus-gb")
-gbMinus.addEventListener("click", function(){
- sugar = gb - 1
- console.log(gb)
- console.log('Ginger Bread - button was clicked!')
+gbMinusBtn.addEventListener('click', function(){
+  if (gb > 0 ){
+      gb--
+  }
  document.getElementById("qty-gb").innerHTML=gb
-
+ updateQuantity('${quantity}')
 })
-let ccMinus = document.getElementById("minus-cc")
-ccMinus.addEventListener("click", function(){
- cc = cc - 1
- console.log(cc)
- console.log('Chocolate chip - button was clicked!')
 
-
+ccMinus.addEventListener('click', function(){
+    if (cc > 0 ){
+        cc--
+    }
+ document.getElementById("qty-cc").innerHTML=cc
+ updateQuantity('${quantity}')
 })
-let sugarMinus = document.getElementById("minus-sugar")
-sugarAdd.addEventListener("click", function(){
- sugar = sugar - 1
- console.log(sugar)
- console.log('sugar cookie - button was clicked!')
 
+sugarMinus.addEventListener('click', function(){
+    if (sugar > 0 ){
+        sugar--
+    }
+ document.getElementById("qty-sugar").innerHTML=sugar
+ updateQuantity('${quantity}')
 })
+
 
 
 
